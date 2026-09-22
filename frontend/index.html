@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="OsintX - OSINT Investigation Simulation Platform" />
+    <title>OsintX | OSINT Platform</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Papyrus Font Style -->
+    <style>
+      @font-face {
+        font-family: 'Papyrus';
+        src: local('Papyrus'), local('Papyrus Regular');
+        font-weight: normal;
+        font-style: normal;
+      }
+      .brand-papyrus {
+        font-family: 'Papyrus', 'Copperplate', 'Luminari', fantasy;
+      }
+    </style>
+    
+    <!-- Preconnect to external services for better performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://challenges.cloudflare.com">
+    <link rel="preconnect" href="https://static.cloudflareinsights.com">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://challenges.cloudflare.com">
+  </head>
+  <body>
+    <!-- Cache buster: force clear old service worker caches on version mismatch -->
+    <script>
+      (function() {
+        var APP_VERSION = 'v6';
+        var lastVersion = localStorage.getItem('osintx_app_version');
+        if (lastVersion !== APP_VERSION) {
+          localStorage.setItem('osintx_app_version', APP_VERSION);
+          // Unregister all service workers
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+              registrations.forEach(function(reg) { reg.unregister(); });
+            });
+          }
+          // Clear all caches
+          if ('caches' in window) {
+            caches.keys().then(function(names) {
+              names.forEach(function(name) { caches.delete(name); });
+            });
+          }
+          // Reload only if we had an old version (not first visit)
+          if (lastVersion) {
+            setTimeout(function() { location.reload(true); }, 500);
+          }
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

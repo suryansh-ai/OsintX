@@ -1,0 +1,57 @@
+{
+  "name": "OsintX",
+  "short_name": "CyberR",
+  "description": "Professional OSINT Investigation Tools Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1729",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["utilities", "productivity", "security"],
+  "shortcuts": [
+    {
+      "name": "IP Intelligence",
+      "url": "/tools/ip-intelligence",
+      "description": "Quick IP lookup"
+    },
+    {
+      "name": "Domain Analysis",
+      "url": "/tools/domain-analysis",
+      "description": "Domain investigation"
+    },
+    {
+      "name": "Threat Map",
+      "url": "/threat-map",
+      "description": "Global threat visualization"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Main Dashboard"
+    },
+    {
+      "src": "/screenshots/mobile-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile View"
+    }
+  ],
+  "prefer_related_applications": false
+}
